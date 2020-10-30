@@ -50,20 +50,6 @@ function classActive() {
 }
 
 
-/* Start Helper Functions */
-/* Hide navbar when scrolling down */
-let prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  let currentScrollPos = window.pageYOffset;
-  if (prevScrollpos < currentScrollPos) {
-    ul.style.visibility = 'hidden';
-  } else {
-    ul.style.visibility = 'visible';
-  }   
-  prevScrollpos = currentScrollPos;
-}
-
-
 /* Styling */
 /* Styling Navigation */
 const styleBar=document.getElementById('navbar__list');
