@@ -1,13 +1,9 @@
 # Landing Page Project
 
-## Table of Contents
+In this project I practiced the knowledge just learned during JavaScript and the DOM lessons at Udacity course Front End Web Developer.
 
-* [Instructions](#instructions)
+I built an interactive navigation bar using an unordered list structure as requested in the exercise, and added a button for each section to scroll smoothly to the corresponding text in the page.
 
-## Instructions
+I styled each button customising the background color to relate to the samme shade in the page section, to make it more user friendly and intuitive.
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+Finally, I created an active class that is only active on the current section on the viewport, to highlight the displayed element with the animated circles and a slightly darker background.

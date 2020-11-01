@@ -32,8 +32,13 @@ function buildNavBar(){
     ul.appendChild(li);
     li.id=sections[i];
     button.id=buttons[i];
- }
+    li.addEventListener('click', function(){
+      sections2[i].scrollIntoView({behavior:'smooth'}); 
+    })  
+  }
 };
+
+
 
 buildNavBar();
 
@@ -70,35 +75,6 @@ styleButton4.style.cssText='background-color: rgb(136,203,171); color: white; fo
 
 
 /* Events */
-/* Scrolling events */
-const scroll1=document.getElementById('Section 1');
-scroll1.addEventListener('click', function(){
-  section1.scrollIntoView({
-    behavior:'smooth'
-  }); 
-})
-
-const scroll2=document.getElementById('Section 2');
-scroll2.addEventListener('click', function(){
-  section2.scrollIntoView({
-    behavior:'smooth'
-  });
-})
-
-const scroll3=document.getElementById('Section 3');
-scroll3.addEventListener('click', function(){
-  section3.scrollIntoView({
-    behavior:'smooth'
-  });
-})
-
-const scroll4=document.getElementById('Section 4');
-scroll4.addEventListener('click', function(){
-  section4.scrollIntoView({
-    behavior:'smooth'
-  });
-})
-
 /* Active class event */
 document.addEventListener('scroll', function () {
   classActive();
