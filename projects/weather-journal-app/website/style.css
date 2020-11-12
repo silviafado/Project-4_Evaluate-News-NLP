@@ -1,5 +1,6 @@
 body{
-    background: #fffff8;
+    background-image: url('../website/pictures/il_1588xN.2356835402_1ia8.jpg');
+    background-size: cover;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -8,8 +9,7 @@ body{
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     height:100vh;
-    background: #f23557;
-    color: #f0d43a;
+    color: white;
     justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
@@ -41,6 +41,8 @@ body{
 }
 
 .headline {
+    font-size: 40px;
+    font-weight: bold;
 
 }
 .title{
@@ -57,21 +59,23 @@ input{
     display:block;
     height: 60px;
     width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
+    background:#3e90b5;
+    border-radius: 5px;
+    color: white;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
+    font-weight: 300;
     border: none;
 }
 
 button{
-    width: 400px;
-    height: 100px;
+    width: 300px;
+    height: 70px;
     background: #3b4a6b;
-    color: #f0d43a;
+    color: white;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
-    border: none;
+    border-radius: 10px;
     box-shadow: 2px 4px 5px #444;
 }
 h1{
@@ -79,8 +83,10 @@ h1{
 }
 
 textarea{
-    background:#22b2da;
-    color: #f0d43a;
+    background:#3e90b5;
+    border-radius: 5px;
+    color: white;
+    font-weight: 300;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
@@ -93,19 +99,22 @@ button:focus {
 }
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
+    color: #9bb7c3;
+    font-weight: 100; 
     font-family: 'Oswald', sans-serif;
 
 } 
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
+    color: #9bb7c3;
+    font-weight: 100px; 
     font-family: 'Oswald', sans-serif;
 
 } 
   
 ::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
+    color: #9bb7c3;
+    font-weight: 100; 
     font-family: 'Oswald', sans-serif;
 
 } 
