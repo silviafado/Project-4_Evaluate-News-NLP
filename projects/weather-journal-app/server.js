@@ -17,14 +17,15 @@ app.use(bodyParser.json());
 
 // Cors for cross origin allowance
 const cors=require('cors');
+const { request, json } = require('express');
 app.use(cors());
 
 // Initialize the main project folder
 app.use(express.static('website'));
 
+// Spin up the server
 const port=8000;
 
-// Spin up the server
 const server=app.listen(port,listening);
 
 // Callback to debug
@@ -37,32 +38,22 @@ function listening(){
 app.get('/all', getData);
 
 // Callback function to complete GET '/all'
-const projectData=[];
-
 function getData(req,res){
     res.send(projectData)
-    console.log(projectData)
 };
 
-// Post Route
+
+//POST route
 app.post('/addEntry', addEntry);
 
-function addEntry(req,res){
-    newEntry={
-        temperature=req.body.temperature,
-        date=req.body.date,
-        userResponse=req.body.userResponse,
-    }
-    projectData.push(newEntry)
-    res.send(projectData)
-    console.log(projectData)
-};
-
-
-
-
-
-
-
-
-  
+function addEntry(req, res) {
+    newEntry = {
+      date: req.body.date,
+      location: req.body.location,
+      country: req.body.country,
+      temp: req.body.temp,
+      content: req.body.content,
+    };
+    res.send(projectData);
+    console.log(projectData);
+}

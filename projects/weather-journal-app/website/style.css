@@ -1,5 +1,5 @@
 body{
-    background-image: url('../website/pictures/il_1588xN.2356835402_1ia8.jpg');
+    background-image: url('../website/ASSETS/il_1588xN.2356835402_1ia8.jpg');
     background-size: cover;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -22,6 +22,8 @@ body{
 
 .entry{
     background: rgba(59, 74, 107, .4);
+    border-radius: 5px;
+    padding: 10px;
 }
 
 #entryHolder{
@@ -89,7 +91,9 @@ textarea{
     font-weight: 300;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
+    border: none;
 }
+
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
@@ -97,6 +101,7 @@ textarea:focus,
 button:focus {
     outline: none;
 }
+
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
     color: #9bb7c3;

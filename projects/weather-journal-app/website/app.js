@@ -1,70 +1,79 @@
+/* Global Variables */
+
 // Personal API Key for OpenWeatherMap API
-let baseURL='file:///Users/silviafado/Documents/GitHub/fend2/projects/weather-journal-app/website/index.html';
-let apiKey='1111cbdcf8fc8f48d8f36f640aab97dc';
+let baseURL='http://api.openweathermap.org/data/2.5/weather?q=';
+const apiKey='&appid=1111cbdcf8fc8f48d8f36f640aab97dc';
+
+
+// Create a new date instance dynamically with JS
+let d = new Date();
+let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+
+
+
 
 // Event listener to add function to existing HTML DOM element
-document.getElementById('generate').addEventListener('click', performAction);
+const generate=document.getElementById('generate').addEventListener('click', performAction);
 
 /* Function called by event listener */
 function performAction(e){
-    const newZip=document.getElementById('zip').value;
-    getZip(baseURL,newZip,apiKey)
+
+    const zip=document.getElementById('zip').value;
+    const url=baseURL+zip+apiKey;
+    const feelings=document.getElementById('feelings').value;
+    getWeather(url)
+        .then (function(data){
+            console.log(data)
+        postData('http://localhost:8000/addEntry', data={date:newDate, location: data.name, country:data.sys.country, temp:data.main.temp, tempCelsius:Math.round(Number(data.main.temp)-273.15), content:feelings})
+        .then (function(newEntry){
+        updateUI()
+        })
+    })
 }
 
 /* Function to GET Web API Data*/
-const getZip=async(baseURL,zip,apiKey)=>{
-    const res=await fetch(baseURL,zip,apiKey)
+const getWeather=async(url)=>{
+    const res=await fetch(url)
     try{
         const data=await res.json();
         console.log(data);
-        return data;
+        return (data);
     }catch(error){
         console.log("error", error);
     }
-}
+};
 
-/* Function to POST data and update UI */
-.then(function(data)){
-    console.log(data);
-    postData('addEntry,{temperature:data.temperature, date:data.date, userResponse:data.userResponse');
-    updateUI();
-}
-
+/* Function to POST data */
 const postData=async(url='', data={})=>{
+    console.log(data)
     const response=await fetch(url, {
     method:'POST',
     credentials:'same-origin',
-    headers:{
-        'Content-Type':'application.json',
-    },
+    headers:{'Content-Type':'application.json; charset=UTF-8'},
     body: JSON.stringify(data),
-    });
+    })
     try{
         const newData=await response.json();
         console.log(newData);
         return newData
     }catch(error){
-        console.log("error",error)
+        console.log("error",error);
     }
 }
 
+/*Function to update User Interface*/
 const updateUI=async()=>{
-    const request=await fetch('/all')
+    const request=await fetch('http://localhost:8000/all');
     try{
-        const allData=await request.json();
-        console.log(allData);
-        document.getElementById('temp').innerHTML=allData[0].temperature;
-        document.getElementById('date').innerHTML=allData[0].date;
-        document.getElementById('content').innerHTML=allData[0].userResponse;
+        const newEntry=await request.json();
+        document.getElementById('date').innerHTML='Date: '+newEntry.date;
+        document.getElementById('location').innerHTML='Location: '+newEntry.location;
+        document.getElementById('country').innerHTML='Country: '+newEntry.country;
+        document.getElementById('temp').innerHTML='Temperature: '+newEntry.temp;
+        document.getElementById('content').innerHTML='Feelings: '+newEntry.content;
     }catch(error){
         console.log("error",error);
     }
 
 }
 
-
-/* Function to GET Project Data */
-
-// Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
