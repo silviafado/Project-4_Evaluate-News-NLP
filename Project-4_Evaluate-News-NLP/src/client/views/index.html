@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap" rel="stylesheet">
+        <title>Sentiments Analysis with NLP</title>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="Logo">
+                <img src="../assets/images/logo.png">
+            </div>
+            <h1>
+                Sentiment Analysis with NLP
+            </h1>
+        </header>
+
+        <main>
+            <section>
+                <form class="" id="form" onsubmit="return Client.handleSubmit(event)">
+                    <textarea id="input" type="text" name="input" value="" placeholder="Your URL here"></textarea>
+                    <button type="submit" name="check" value="" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">Analise</button>
+                </form>
+            </section>
+
+            <section>
+                <strong>Form Results:</strong>
+                <div id="agreement"></div>
+                <div id="subjectivity"></div>
+                <div id="confidence"></div>
+                <div id="irony"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>This is a footer</p>
+        </footer>
+
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+              // Use the window load event to keep the page load performant
+              window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+              });
+            }
+        </script>
+            
+    </body>
+</html>
