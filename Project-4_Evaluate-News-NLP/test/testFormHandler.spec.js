@@ -1,6 +1,12 @@
 // Import the js file to test
-import { handleSubmit } from "../src/client/js/formHandler";
+import { handleSubmit, postData } from "../src/client/js/formHandler"
 
-test('handleSubmit is defined', () => {
-  expect(submit.handleSubmit).toBeDefined();
+describe("Testing the submit functionality", () => {
+    test('Testing the handleSubmit() function', () => {
+    const urlToAnal= 'http://www.silviafado.com/';   
+    return postData ('http://localhost:8081/api', {urlToAnal}).then(allData => {
+        expect(allData.agreement).toBe('AGREEMENT');
+    
+        /*expect(handleSubmit).toBeDefined()*/
+    })});
 });
