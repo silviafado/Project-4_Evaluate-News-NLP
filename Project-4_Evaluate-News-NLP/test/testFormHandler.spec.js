@@ -1,5 +1,6 @@
 // Import the js file to test
-import { handleSubmit, postData } from "../src/client/js/formHandler"
+import { handleSubmit, postData } from '../src/client/js/formHandler'
+const fetch = require('node-fetch')
 
 describe("Testing the submit functionality", () => {
     test('Testing the handleSubmit() function', () => {
