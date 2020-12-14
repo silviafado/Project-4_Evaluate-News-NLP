@@ -1,3 +1,5 @@
+const fetch = require('node-fetch')
+
 function handleSubmit(event) {
     event.preventDefault()
     let formText = document.getElementById('input').value;
