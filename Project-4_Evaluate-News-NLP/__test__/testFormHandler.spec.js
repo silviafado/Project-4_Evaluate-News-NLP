@@ -6,9 +6,7 @@ describe("Testing the submit functionality", () => {
     test('Testing the handleSubmit() function', () => {
     const urlToAnal= 'http://www.silviafado.com/';   
         const newLocal = 'http://localhost:8081/api';
-    return postData (newLocal, {urlToAnal}).then(allData => {
+    return postData (newLocal, {formText: urlToAnal}).then(allData => {
         expect(allData.agreement).toBe('AGREEMENT');
-    
-        /*expect(handleSubmit).toBeDefined()*/
     })});
 });
